@@ -5,111 +5,121 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>⚡ Bill Manager - MAC | Pinto | PJ Electricals</title>
 <style>
-:root{--p:#1a56db;--pl:#e8effc;--pd:#1442a8;--s:#059669;--w:#d97706;--d:#dc2626;--bg:#f3f4f6;--c:#fff;--t:#1f2937;--tl:#6b7280;--b:#e5e7eb;--sh:0 1px 3px rgba(0,0,0,.1);--shl:0 10px 15px -3px rgba(0,0,0,.1);--r:8px}
+:root{--p:#0176d3;--pl:#eef4ff;--pd:#014486;--s:#2e844a;--w:#dd7a01;--d:#ea001e;--bg:#f3f6f9;--c:#fff;--t:#181818;--tl:#706e6b;--b:#e5e5e5;--sh:0 2px 6px rgba(0,0,0,.07);--shl:0 12px 24px -4px rgba(0,0,0,.12);--r:12px}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
 /* Sidebar */
-.sb{position:fixed;left:0;top:0;bottom:0;width:220px;background:linear-gradient(180deg,#1e293b,#0f172a);color:#fff;z-index:100;overflow-y:auto}
-.sb-hd{padding:16px;border-bottom:1px solid rgba(255,255,255,.1)}
-.sb-hd h2{font-size:15px;font-weight:700;color:#60a5fa}
-.sb-hd p{font-size:10px;color:#94a3b8;margin-top:3px}
-.sb nav{padding:8px 0}
-.ns{padding:8px 16px 3px;font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#64748b;font-weight:600}
-.ni{display:flex;align-items:center;padding:9px 16px;cursor:pointer;transition:all .12s;color:#cbd5e1;font-size:12.5px;gap:8px}
-.ni:hover{background:rgba(255,255,255,.05);color:#fff}
-.ni.a{background:rgba(96,165,250,.15);color:#60a5fa;border-right:3px solid #60a5fa}
-.ni svg{width:16px;height:16px;flex-shrink:0}
+.sb{position:fixed;left:0;top:0;bottom:0;width:250px;background:linear-gradient(180deg,#032d60,#001639);color:#fff;z-index:100;overflow-y:auto}
+.sb-hd{padding:20px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sb-hd h2{font-size:17px;font-weight:700;color:#1b96ff;letter-spacing:.3px}
+.sb-hd p{font-size:11px;color:#b0adab;margin-top:5px}
+.sb nav{padding:10px 0}
+.ns{padding:10px 20px 4px;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:#576574;font-weight:700}
+.ni{display:flex;align-items:center;padding:11px 20px;cursor:pointer;transition:all .18s;color:#b0adab;font-size:13.5px;gap:10px}
+.ni:hover{background:rgba(255,255,255,.06);color:#fff;padding-left:24px}
+.ni.a{background:rgba(1,118,211,.2);color:#1b96ff;border-left:4px solid #1b96ff;border-right:none;padding-left:16px}
+.ni svg{width:18px;height:18px;flex-shrink:0}
 /* Main */
-.mn{margin-left:220px;padding:20px;min-height:100vh}
-.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:8px}
-.ph h1{font-size:20px;font-weight:700}
-.ph .st{font-size:12px;color:var(--tl)}
+.mn{margin-left:250px;padding:24px 28px;min-height:100vh}
+.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:10px}
+.ph h1{font-size:24px;font-weight:700;color:#032d60}
+.ph .st{font-size:13px;color:var(--tl);margin-top:2px}
+.ph .breadcrumb{font-size:12px;color:var(--tl);margin-bottom:4px}
+.ph .breadcrumb a{color:var(--p);text-decoration:none;cursor:pointer}
+.ph .breadcrumb a:hover{text-decoration:underline}
 /* Card */
-.cd{background:var(--c);border-radius:var(--r);box-shadow:var(--sh);padding:20px;margin-bottom:16px}
-.ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--b)}
-.ch h3{font-size:15px;font-weight:600}
+.cd{background:var(--c);border-radius:var(--r);box-shadow:var(--sh);padding:24px;margin-bottom:18px;border-left:4px solid var(--p)}
+.ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--b)}
+.ch h3{font-size:16px;font-weight:700;color:#032d60}
 /* Buttons */
-.bt{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border:none;border-radius:6px;cursor:pointer;font-size:12.5px;font-weight:500;transition:all .12s;font-family:inherit}
-.bp{background:var(--p);color:#fff}.bp:hover{background:var(--pd)}
-.bs{background:var(--s);color:#fff}.bs:hover{background:#047857}
-.bw{background:var(--w);color:#fff}.bw:hover{background:#b45309}
-.bd{background:var(--d);color:#fff}.bd:hover{background:#b91c1c}
-.bo{background:transparent;border:1px solid var(--b);color:var(--t)}.bo:hover{background:var(--bg)}
-.bsm{padding:4px 9px;font-size:11.5px}
-.blg{padding:10px 22px;font-size:14px}
+.bt{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;transition:all .18s;font-family:inherit}
+.bp{background:var(--p);color:#fff}.bp:hover{background:var(--pd);box-shadow:0 2px 8px rgba(1,118,211,.3)}
+.bs{background:var(--s);color:#fff}.bs:hover{background:#1c6334;box-shadow:0 2px 8px rgba(46,132,74,.3)}
+.bw{background:var(--w);color:#fff}.bw:hover{background:#b45309;box-shadow:0 2px 8px rgba(221,122,1,.3)}
+.bd{background:var(--d);color:#fff}.bd:hover{background:#ba0517;box-shadow:0 2px 8px rgba(234,0,30,.3)}
+.bo{background:transparent;border:1px solid var(--b);color:var(--t)}.bo:hover{background:var(--bg);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.bsm{padding:5px 12px;font-size:12px}
+.blg{padding:11px 24px;font-size:14.5px}
 /* Forms */
-.fg{margin-bottom:12px}
-.fg label{display:block;font-size:11px;font-weight:600;color:var(--tl);margin-bottom:3px;text-transform:uppercase;letter-spacing:.4px}
-.fg input,.fg select,.fg textarea{width:100%;padding:7px 10px;border:1px solid var(--b);border-radius:5px;font-size:12.5px;font-family:inherit;transition:border .12s}
-.fg input:focus,.fg select:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 2px rgba(26,86,219,.1)}
-.fr{display:grid;gap:12px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:11.5px;font-weight:700;color:#3e3e3c;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1px solid var(--b);border-radius:8px;font-size:13px;font-family:inherit;transition:all .18s;background:#fff}
+.fg input:focus,.fg select:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 3px rgba(1,118,211,.15)}
+.fr{display:grid;gap:14px}
 .f2{grid-template-columns:1fr 1fr}.f3{grid-template-columns:1fr 1fr 1fr}.f4{grid-template-columns:1fr 1fr 1fr 1fr}
 /* Table */
-table{width:100%;border-collapse:collapse;font-size:12.5px}
-th{background:var(--bg);padding:8px 10px;text-align:left;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--tl);border-bottom:2px solid var(--b)}
-td{padding:7px 10px;border-bottom:1px solid var(--b)}
-.badge{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10.5px;font-weight:600}
-.bb{background:#dbeafe;color:#1e40af}.bg{background:#d1fae5;color:#065f46}.by{background:#fef3c7;color:#92400e}.br{background:#fee2e2;color:#991b1b}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--bg);padding:10px 12px;text-align:left;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:#3e3e3c;border-bottom:2px solid var(--b)}
+td{padding:9px 12px;border-bottom:1px solid var(--b)}
+tr:hover td{background:rgba(1,118,211,.02)}
+.badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600}
+.bb{background:#d8edff;color:#014486}.bg{background:#cdefc8;color:#1c6334}.by{background:#fef3c7;color:#92400e}.br{background:#fdd;color:#ba0517}
 /* Stats */
-.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
-.sc{background:var(--c);border-radius:var(--r);padding:16px;box-shadow:var(--sh)}
-.sc .lb{font-size:11px;color:var(--tl);font-weight:500}.sc .vl{font-size:26px;font-weight:700;margin-top:3px}.sc .su{font-size:11px;color:var(--tl);margin-top:2px}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.sc{background:var(--c);border-radius:var(--r);padding:20px;box-shadow:var(--sh);border-top:4px solid var(--p);position:relative;overflow:hidden}
+.sc .lb{font-size:12px;color:var(--tl);font-weight:600;text-transform:uppercase;letter-spacing:.5px}.sc .vl{font-size:30px;font-weight:800;margin-top:6px}.sc .su{font-size:12px;color:var(--tl);margin-top:4px}
+.sc:nth-child(2){border-top-color:var(--s)}.sc:nth-child(3){border-top-color:var(--w)}.sc:nth-child(4){border-top-color:#706e6b}
 /* Quick-create bar */
-.qc-bar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
-.qc-btn{flex:1;min-width:150px;padding:14px 16px;background:var(--c);border:2px solid var(--b);border-radius:var(--r);cursor:pointer;display:flex;align-items:center;gap:10px;transition:all .15s}
-.qc-btn:hover{border-color:var(--p);background:var(--pl);transform:translateY(-1px)}
-.qc-btn .qc-icon{font-size:22px}.qc-btn .qc-text{font-size:13px;font-weight:600}.qc-btn .qc-sub{font-size:10px;color:var(--tl)}
+.qc-bar{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.qc-btn{flex:1;min-width:160px;padding:16px 18px;background:var(--c);border:2px solid var(--b);border-radius:var(--r);cursor:pointer;display:flex;align-items:center;gap:12px;transition:all .2s;box-shadow:var(--sh)}
+.qc-btn:hover{border-color:var(--p);background:var(--pl);transform:translateY(-2px);box-shadow:var(--shl)}
+.qc-btn .qc-icon{font-size:26px}.qc-btn .qc-text{font-size:14px;font-weight:600}.qc-btn .qc-sub{font-size:11px;color:var(--tl)}
 /* Smart search / autocomplete */
 .ss{position:relative}
-.ss input{padding-left:30px;font-size:14px;padding:10px 12px 10px 34px}
-.ss .si{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--tl)}
-.ss-drop{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--b);border-radius:0 0 8px 8px;max-height:250px;overflow-y:auto;z-index:50;box-shadow:var(--shl);display:none}
+.ss input{padding-left:38px;font-size:14px;padding:12px 14px 12px 38px;border-radius:10px;border:2px solid var(--b);background:#fff;transition:all .2s}
+.ss input:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(1,118,211,.12)}
+.ss .si{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--tl)}
+.ss-drop{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--b);border-radius:0 0 10px 10px;max-height:280px;overflow-y:auto;z-index:50;box-shadow:var(--shl);display:none}
 .ss-drop.show{display:block}
-.ss-item{padding:10px 14px;cursor:pointer;border-bottom:1px solid #f3f4f6;transition:background .1s}
+.ss-item{padding:12px 16px;cursor:pointer;border-bottom:1px solid #f3f6f9;transition:background .12s}
 .ss-item:hover,.ss-item.hl{background:var(--pl)}
-.ss-item .ss-name{font-weight:600;font-size:13px}.ss-item .ss-info{font-size:11px;color:var(--tl);margin-top:2px}
+.ss-item .ss-name{font-weight:600;font-size:13.5px}.ss-item .ss-info{font-size:11.5px;color:var(--tl);margin-top:3px}
 /* Company pills - compact */
-.cp{display:inline-flex;gap:6px;margin-bottom:14px}
-.cpill{padding:6px 14px;border-radius:16px;cursor:pointer;font-size:12px;font-weight:500;border:2px solid var(--b);background:#fff;transition:all .12s}
-.cpill.a{border-color:var(--p);background:var(--pl);color:var(--p)}
-.cpill:hover{border-color:var(--p)}
+.cp{display:inline-flex;gap:8px;margin-bottom:14px}
+.cpill{padding:8px 18px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:600;border:2px solid var(--b);background:#fff;transition:all .18s}
+.cpill.a{border-color:var(--p);background:var(--pl);color:var(--p);box-shadow:0 1px 4px rgba(1,118,211,.15)}
+.cpill:hover{border-color:var(--p);transform:translateY(-1px)}
 /* Doc type pills */
-.dtp{display:inline-flex;gap:6px;margin-bottom:14px}
-.dtpill{padding:6px 14px;border-radius:16px;cursor:pointer;font-size:12px;font-weight:500;border:2px solid var(--b);background:#fff;transition:all .12s}
-.dtpill.a{border-color:var(--p);background:var(--pl);color:var(--p)}
-.dtpill:hover{border-color:var(--p)}
-/* Line items - compact table */
-.lt{width:100%;border-collapse:collapse;font-size:12px}
-.lt th{background:var(--bg);padding:6px 5px;font-size:9.5px;text-align:center;font-weight:600;text-transform:uppercase;letter-spacing:.3px;border-bottom:2px solid var(--b);white-space:nowrap}
-.lt td{padding:3px 2px;vertical-align:middle}
-.lt input,.lt select{padding:5px 5px;font-size:12px;border:1px solid var(--b);border-radius:4px;width:100%;font-family:inherit}
-.lt input:focus,.lt select:focus{outline:none;border-color:var(--p)}
-.lt .ro{background:#f9fafb;font-weight:600;text-align:right}
-.rl{background:none;border:none;color:var(--d);cursor:pointer;font-size:16px;padding:2px 4px}
-.rl:hover{color:#991b1c}
+.dtp{display:inline-flex;gap:8px;margin-bottom:14px}
+.dtpill{padding:8px 18px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:600;border:2px solid var(--b);background:#fff;transition:all .18s}
+.dtpill.a{border-color:var(--p);background:var(--pl);color:var(--p);box-shadow:0 1px 4px rgba(1,118,211,.15)}
+.dtpill:hover{border-color:var(--p);transform:translateY(-1px)}
+/* Line items - spacious table */
+.lt{width:100%;border-collapse:collapse;font-size:13px}
+.lt th{background:#eef4ff;padding:10px 8px;font-size:10.5px;text-align:center;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border-bottom:2px solid var(--p);white-space:nowrap;color:#032d60}
+.lt td{padding:8px 5px;vertical-align:middle}
+.lt tr:nth-child(even) td{background:#fafcff}
+.lt tr:hover td{background:rgba(1,118,211,.04)}
+.lt input,.lt select{padding:8px 8px;font-size:13px;border:1px solid var(--b);border-radius:6px;width:100%;font-family:inherit;transition:border .15s}
+.lt input:focus,.lt select:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 2px rgba(1,118,211,.1)}
+.lt .ro{background:#f3f6f9;font-weight:700;text-align:right;color:#032d60}
+.rl{background:none;border:none;color:var(--d);cursor:pointer;font-size:18px;padding:4px 6px;border-radius:4px;transition:all .15s}
+.rl:hover{color:#ba0517;background:rgba(234,0,30,.08)}
 /* Quick item search in line */
 .qi{position:relative}
-.qi-drop{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--b);border-radius:0 0 6px 6px;max-height:180px;overflow-y:auto;z-index:40;box-shadow:var(--shl);display:none;font-size:11px}
+.qi-drop{position:absolute;top:100%;left:0;right:0;background:#fff;border:2px solid var(--p);border-top:none;border-radius:0 0 10px 10px;max-height:260px;overflow-y:auto;z-index:40;box-shadow:var(--shl);display:none;font-size:12px}
 .qi-drop.show{display:block}
-.qi-item{padding:6px 8px;cursor:pointer;border-bottom:1px solid #f9fafb}
+.qi-item{padding:10px 14px;cursor:pointer;border-bottom:1px solid #f3f4f6;transition:background .1s}
 .qi-item:hover{background:var(--pl)}
 .qi-item b{color:var(--p)}
+.last-row td{border-bottom:2px dashed var(--b)}
 /* Summary floating */
-.sum-float{position:sticky;bottom:0;background:var(--c);border-top:2px solid var(--p);padding:14px 20px;margin:-20px;margin-top:12px;border-radius:0 0 var(--r) var(--r);z-index:10}
+.sum-float{position:sticky;bottom:0;background:var(--c);border-top:3px solid var(--p);padding:18px 24px;margin:-24px;margin-top:14px;border-radius:0 0 var(--r) var(--r);z-index:10;box-shadow:0 -4px 12px rgba(0,0,0,.05)}
 .sum-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center}
 .sum-total{text-align:center}
-.sum-total .big{font-size:24px;font-weight:800;color:var(--p)}
-.sum-total .sub{font-size:10px;color:var(--tl)}
-.sum-details{font-size:11.5px}
-.sum-details .row{display:flex;justify-content:space-between;padding:1px 0}
+.sum-total .big{font-size:32px;font-weight:800;color:var(--p);letter-spacing:-.5px}
+.sum-total .sub{font-size:11px;color:var(--tl);margin-top:2px}
+.sum-details{font-size:12.5px}
+.sum-details .row{display:flex;justify-content:space-between;padding:3px 0}
 /* Modal */
-.mo{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;display:flex;align-items:center;justify-content:center}
-.md{background:var(--c);border-radius:12px;max-width:700px;width:95%;max-height:85vh;overflow-y:auto;box-shadow:var(--shl)}
-.mh{padding:16px 20px;border-bottom:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--c);z-index:10}
-.mh h3{font-size:15px;font-weight:600}
-.mc{background:none;border:none;font-size:18px;cursor:pointer;color:var(--tl);padding:4px}
-.mb{padding:20px}
-.mf{padding:14px 20px;border-top:1px solid var(--b);display:flex;justify-content:flex-end;gap:8px;position:sticky;bottom:0;background:var(--c)}
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;display:flex;align-items:center;justify-content:center}
+.md{background:var(--c);border-radius:var(--r);max-width:800px;width:95%;max-height:85vh;overflow-y:auto;box-shadow:var(--shl)}
+.mh{padding:18px 24px;border-bottom:none;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--p);z-index:10;color:#fff;border-radius:var(--r) var(--r) 0 0}
+.mh h3{font-size:16px;font-weight:700;color:#fff}
+.mc{background:none;border:none;font-size:20px;cursor:pointer;color:rgba(255,255,255,.8);padding:4px}
+.mc:hover{color:#fff}
+.mb{padding:24px}
+.mf{padding:16px 24px;border-top:1px solid var(--b);display:flex;justify-content:flex-end;gap:10px;position:sticky;bottom:0;background:var(--c)}
 /* Toast */
 .toast{position:fixed;top:16px;right:16px;color:#fff;padding:10px 18px;border-radius:8px;z-index:2000;font-size:12.5px;animation:si .3s}
 @keyframes si{from{transform:translateX(80px);opacity:0}to{transform:translateX(0);opacity:1}}
@@ -139,9 +149,10 @@ td{padding:7px 10px;border-bottom:1px solid var(--b)}
 .inv-gst-table th,.inv-gst-table td{border:1px solid #ccc;padding:3px 5px;text-align:center}
 .inv-gst-table th{background:#f0f0f0}
 /* Filter */
-.fb{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
-.fb input{padding:7px 10px;border:1px solid var(--b);border-radius:6px;font-size:12.5px;min-width:180px}
-.fb select{padding:7px 10px;border:1px solid var(--b);border-radius:6px;font-size:12.5px}
+.fb{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
+.fb input{padding:10px 14px;border:2px solid var(--b);border-radius:8px;font-size:13px;min-width:220px;transition:all .18s}
+.fb input:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(1,118,211,.1);outline:none}
+.fb select{padding:10px 12px;border:2px solid var(--b);border-radius:8px;font-size:13px}
 /* Chart */
 .chart-bar{display:flex;align-items:flex-end;gap:6px;height:100px;padding-top:8px}
 .chart-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
@@ -151,13 +162,16 @@ td{padding:7px 10px;border-bottom:1px solid var(--b)}
 .ca{display:flex;gap:4px;flex-wrap:wrap}
 /* Keyboard hint */
 .kh{font-size:9px;color:var(--tl);background:var(--bg);padding:1px 5px;border-radius:3px;margin-left:4px}
+/* Auto tax indicator */
+.tax-auto-indicator{display:inline-block;font-size:10.5px;font-weight:600;padding:3px 8px;border-radius:6px;margin-left:6px;vertical-align:middle}
+.tax-auto-indicator.intra{background:#cdefc8;color:#1c6334}
+.tax-auto-indicator.inter{background:#fef3c7;color:#92400e}
 /* Responsive */
 @media(max-width:900px){.sb{transform:translateX(-100%)}.mn{margin-left:0}.sg{grid-template-columns:1fr 1fr}.f3,.f4{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.f2,.f3,.f4{grid-template-columns:1fr}.sg{grid-template-columns:1fr}}
 @media print{.sb,.mn,.no-print{display:none!important}.print-area{display:block!important;margin:0;padding:15px}body{background:#fff}}
 .print-area{display:none}
-/* Highlighted row */
-.lt tr:hover td{background:rgba(26,86,219,.03)}
+/* Highlighted row — handled above in .lt tr:hover */
 /* Import UI */
 .drop-zone{border:2px dashed var(--b);border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#fafbfc}
 .drop-zone:hover,.drop-zone.drag-over{border-color:var(--p);background:var(--pl)}
@@ -201,6 +215,8 @@ td{padding:7px 10px;border-bottom:1px solid var(--b)}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.1.1/tesseract.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>if(window.pdfjsLib)pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';</script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 </head>
@@ -448,7 +464,7 @@ function rDash(){
 function rCreate(){
   const c=gc(cid);
   return`
-  <div class="ph"><div><h1>New Document</h1><p class="st">Fill details below → Save & Print</p></div>
+  <div class="ph"><div><div class="breadcrumb"><a onclick="sp('dash')">Dashboard</a> &rsaquo; <a onclick="sp('create')">Documents</a> &rsaquo; <strong>New ${dt==='invoice'?'Invoice':dt==='quotation'?'Quotation':dt==='challan'?'Delivery Challan':'Proforma Invoice'}</strong></div><h1>New Document</h1><p class="st">Fill details below, then save &amp; print</p></div>
     <div style="display:flex;gap:8px"><button class="bt bo" onclick="resetForm()">Clear</button><button class="bt bs blg" onclick="saveDoc()">💾 Save & Preview</button></div></div>
 
   <div class="cd" style="padding:14px 20px">
@@ -488,35 +504,42 @@ function rCreate(){
   </div>
 
   <div class="cd">
-    <div class="ch"><h3>Items</h3>
-      <div style="display:flex;gap:6px"><button class="bt bsm bp" onclick="addLI()">+ Add Row</button><button class="bt bsm bo" onclick="addLI(5)">+5</button></div></div>
+    <div class="ch"><h3>📦 Line Items</h3>
+      <div style="display:flex;gap:6px;align-items:center">
+        <span style="font-size:11px;color:var(--tl)">Start typing in any row to search items</span>
+        <button class="bt bsm bp" onclick="addLI()">+ Add Row</button>
+        <button class="bt bsm bo" onclick="addLI(5)">+5 Rows</button>
+      </div></div>
     <div style="overflow-x:auto">
       <table class="lt"><thead><tr>
-        <th style="width:30px">#</th>
-        <th style="width:130px">Item <span class="kh">type to search</span></th>
-        <th style="min-width:160px">Description</th>
-        ${isGstCo()?'<th style="width:72px">HSN</th>':''}
-        <th style="width:50px">Qty</th>
-        <th style="width:58px">UOM</th>
-        <th style="width:70px">Rate</th>
-        <th style="width:50px">Disc%</th>
-        ${isGstCo()?'<th style="width:52px">GST%</th>':''}
-        <th style="width:80px">Amt</th>
-        <th style="width:26px"></th>
+        <th style="width:36px">#</th>
+        <th style="min-width:260px">Item / Description <span class="kh">🔍 type to search</span></th>
+        ${isGstCo()?'<th style="width:80px">HSN</th>':''}
+        <th style="width:80px">Qty</th>
+        <th style="width:90px">UOM</th>
+        <th style="width:110px">Rate (₹)</th>
+        <th style="width:65px">Disc%</th>
+        ${isGstCo()?'<th style="width:70px">GST%</th>':''}
+        <th style="width:110px">Amount (₹)</th>
+        <th style="width:36px"></th>
       </tr></thead><tbody id="liBody">${LI.map((l,i)=>liRow(l,i)).join('')}</tbody></table>
     </div>
   </div>
 
   <div class="cd">
-    <div class="ch"><h3>Summary</h3></div>
-    <div class="fr ${isGstCo()?'f4':'f3'}" style="margin-bottom:12px">
-      <div class="fg"><label>Overall Disc %</label><input type="number" id="oDisc" value="0" min="0" max="100" oninput="recalc()"></div>
-      ${isGstCo()?`<div class="fg"><label>Tax Type</label><select id="taxType" onchange="recalc()"><option value="cgst_sgst">CGST+SGST</option><option value="igst">IGST</option></select></div>`:`<input type="hidden" id="taxType" value="none">`}
-      <div class="fg"><label>Advance ₹</label><input type="number" id="adv" value="0" min="0" oninput="recalc()"></div>
-      <div class="fg"><label>Notes</label><input id="docNotes" placeholder="Terms, notes..."></div>
+    <div class="ch"><h3>💰 Summary & Notes</h3></div>
+    <div class="fr f3" style="margin-bottom:14px">
+      <div class="fg"><label>Overall Discount %</label><input type="number" id="oDisc" value="0" min="0" max="100" step="0.5" oninput="recalc()" style="font-size:15px;padding:10px 12px;text-align:center"></div>
+      ${isGstCo()?`<div class="fg"><label>Tax Type <span id="taxAutoInd"></span></label><select id="taxType" onchange="recalc()" style="font-size:14px;padding:10px 12px"><option value="cgst_sgst">CGST + SGST (Intra-state)</option><option value="igst">IGST (Inter-state)</option></select></div>`:`<input type="hidden" id="taxType" value="none">`}
+      <div class="fg"><label>Advance Paid (₹)</label><input type="number" id="adv" value="0" min="0" step="100" oninput="recalc()" style="font-size:15px;padding:10px 12px;text-align:center"></div>
     </div>
+    <div class="fg" style="margin-bottom:14px"><label>Notes / Terms & Conditions</label>
+      <textarea id="docNotes" rows="3" placeholder="Payment terms, delivery conditions, warranty details, special instructions..." style="width:100%;padding:10px 12px;border:1px solid var(--b);border-radius:8px;font-size:13px;font-family:inherit;resize:vertical;min-height:70px"></textarea></div>
     <div id="sumDisp"></div>
-    <div style="text-align:right;margin-top:14px"><button class="bt bs blg" onclick="saveDoc()">💾 Save & Preview</button></div>
+    <div style="text-align:right;margin-top:14px">
+      <button class="bt bo" onclick="resetForm()" style="margin-right:8px">🔄 Clear Form</button>
+      <button class="bt bs blg" onclick="saveDoc()" style="font-size:15px;padding:12px 30px">💾 Save & Preview</button>
+    </div>
   </div>`;
 }
 
@@ -525,51 +548,128 @@ function searchCust(q){
   const drop=document.getElementById('custDrop');if(!drop)return;
   if(!q||q.length<1){drop.classList.remove('show');return;}
   q=q.toLowerCase();
-  const matches=S.customers.filter(c=>c.name.toLowerCase().includes(q)||c.code.toLowerCase().includes(q)||c.address.toLowerCase().includes(q)).slice(0,12);
-  if(!matches.length){drop.innerHTML='<div style="padding:10px;color:var(--tl);font-size:12px">No match. Details will be saved as new customer.</div>';drop.classList.add('show');return;}
-  drop.innerHTML=matches.map(c=>`<div class="ss-item" onclick="pickCust('${c.id}')"><div class="ss-name">${c.code} — ${c.name}</div><div class="ss-info">${c.address}${c.gstin?' | GSTIN: '+c.gstin:''}</div></div>`).join('');
+  const matches=S.customers.filter(c=>{
+    const nm=(c.name||'').toLowerCase(),cd=(c.code||'').toLowerCase(),ad=(c.address||'').toLowerCase(),gs=(c.gstin||'').toLowerCase(),ph=(c.phone||'').toLowerCase();
+    return nm.includes(q)||cd.includes(q)||ad.includes(q)||gs.includes(q)||ph.includes(q);
+  }).slice(0,12);
+  if(!matches.length){drop.innerHTML='<div style="padding:14px 16px;color:var(--tl);font-size:12.5px">No match found. Fill details below to add as new customer.</div>';drop.classList.add('show');return;}
+  drop.innerHTML=matches.map(c=>`<div class="ss-item" onclick="pickCust('${c.id}')"><div class="ss-name">${c.code||''} — ${c.name||''}</div><div class="ss-info">${c.address||''}${c.gstin?' | GSTIN: '+c.gstin:''}</div></div>`).join('');
   drop.classList.add('show');
 }
 function pickCust(id){
   selCustId=id;const c=gcu(id);if(!c)return;
-  document.getElementById('custSearch').value=c.code+' — '+c.name;
+  document.getElementById('custSearch').value=(c.code||'')+' — '+(c.name||'');
   document.getElementById('custDrop').classList.remove('show');
   document.getElementById('custDetails').style.display='block';
-  document.getElementById('cCode').value=c.code;
-  document.getElementById('cName').value=c.name;
-  document.getElementById('cAddr').value=c.address;
-  document.getElementById('cGstin').value=c.gstin;
-  document.getElementById('cPan').value=c.pan;
-  document.getElementById('cState').value=c.stateCode;
+  document.getElementById('cCode').value=c.code||'';
+  document.getElementById('cName').value=c.name||'';
+  document.getElementById('cAddr').value=c.address||'';
+  document.getElementById('cGstin').value=c.gstin||'';
+  document.getElementById('cPan').value=c.pan||'';
+  document.getElementById('cState').value=c.stateCode||'27';
+  // Auto-determine CGST/SGST vs IGST
+  if(isGstCo()){
+    const custState=c.gstin&&c.gstin.length>=2?c.gstin.substring(0,2):(c.stateCode||'27');
+    const compState=gc(cid)?.stateCode||'27';
+    const isSameState=custState===compState;
+    const ttSel=document.getElementById('taxType');
+    if(ttSel){ttSel.value=isSameState?'cgst_sgst':'igst';}
+    const ind=document.getElementById('taxAutoInd');
+    if(ind){ind.innerHTML=isSameState?'<span class="tax-auto-indicator intra">Auto: Intra-state</span>':'<span class="tax-auto-indicator inter">Auto: Inter-state</span>';}
+    recalc();
+  }
 }
 // Close dropdown on outside click
 document.addEventListener('click',e=>{const d=document.getElementById('custDrop');if(d&&!e.target.closest('.ss'))d.classList.remove('show');document.querySelectorAll('.qi-drop').forEach(x=>{if(!e.target.closest('.qi'))x.classList.remove('show');});});
+
+// UOM master — user can add custom UOMs
+const UOM_DEFAULT=['NOS','BUNDLE','ROLL','MTR','RFT','FT','KG','SET','LOT','BOX','PKT','SQM','SQFT','PAIR','LTR','POINT','VISIT','JOB'];
+function getUoms(){const custom=JSON.parse(localStorage.getItem('bm3_uoms')||'[]');return[...new Set([...UOM_DEFAULT,...custom])];}
+function addCustomUom(val){if(!val)return;const custom=JSON.parse(localStorage.getItem('bm3_uoms')||'[]');val=val.toUpperCase().trim();if(!custom.includes(val)&&!UOM_DEFAULT.includes(val)){custom.push(val);localStorage.setItem('bm3_uoms',JSON.stringify(custom));}return val;}
 
 // Line items
 function liRow(l,i){
   const gst=isGstCo();
   const amt=l.qty*l.rate*(1-(l.discPct||0)/100);
-  return`<tr>
-    <td style="text-align:center;color:var(--tl);font-weight:600">${i+1}</td>
-    <td class="qi"><input value="${(l.code||'').replace(/"/g,'&quot;')}" placeholder="Type to search..." oninput="searchItem(${i},this.value)" onfocus="searchItem(${i},this.value)" autocomplete="off"><div class="qi-drop" id="qid${i}"></div></td>
-    <td><input value="${l.description.replace(/"/g,'&quot;')}" onchange="LI[${i}].description=this.value"></td>
-    ${gst?`<td><input value="${l.hsn}" onchange="LI[${i}].hsn=this.value" style="text-align:center;font-size:11px"></td>`:''}
-    <td><input type="number" value="${l.qty}" min="0" step="0.5" oninput="LI[${i}].qty=+this.value||0;rfLI();recalc()" style="text-align:center;width:46px"></td>
-    <td><select onchange="LI[${i}].uom=this.value" style="font-size:11px;padding:4px 2px">${['NOS','BUNDLE','ROLL','MTR','RFT','FT','KG','SET','LOT','BOX','PKT','SQM','SQFT','PAIR','LTR','POINT','VISIT','JOB'].map(u=>`<option ${l.uom===u?'selected':''}>${u}</option>`).join('')}</select></td>
-    <td><input type="number" value="${l.rate}" min="0" step="1" oninput="LI[${i}].rate=+this.value||0;rfLI();recalc()" style="text-align:right;width:66px"></td>
-    <td><input type="number" value="${l.discPct||0}" min="0" max="100" step="0.5" oninput="LI[${i}].discPct=+this.value||0;rfLI();recalc()" style="text-align:center;width:46px"></td>
-    ${gst?`<td><select onchange="LI[${i}].gstRate=+this.value;recalc()" style="font-size:11px;padding:4px 2px;width:50px">${[0,5,12,18,28].map(r=>`<option value="${r}" ${l.gstRate==r?'selected':''}>${r}%</option>`).join('')}</select></td>`:''}
-    <td><input value="${amt.toFixed(2)}" readonly class="ro" style="width:76px;font-size:11.5px"></td>
-    <td><button class="rl" onclick="remLI(${i})">×</button></td>
+  const uoms=getUoms();
+  const isLast=i===LI.length-1;
+  return`<tr class="${isLast?'last-row':''}">
+    <td style="text-align:center;color:var(--tl);font-weight:700;font-size:13px">${i+1}</td>
+    <td class="qi" style="position:relative">
+      <input value="${(l.description||'').replace(/"/g,'&quot;')}" placeholder="${isLast&&!l.description?'🔍 Type item name, code or description...':'Item description'}"
+        oninput="LI[${i}].description=this.value;searchItem(${i},this.value);autoAddRow(${i})"
+        onfocus="searchItem(${i},this.value)"
+        onchange="LI[${i}].description=this.value"
+        autocomplete="off" style="font-size:14px;padding:8px 10px;font-weight:${l.description?'500':'400'}">
+      <div class="qi-drop" id="qid${i}"></div>
+    </td>
+    ${gst?`<td><input value="${l.hsn}" onchange="LI[${i}].hsn=this.value" placeholder="HSN" style="text-align:center;font-size:12px;padding:8px 4px"></td>`:''}
+    <td><input type="number" value="${l.qty||''}" min="0" step="0.5" placeholder="0"
+      oninput="LI[${i}].qty=+this.value||0;recalcRow(${i})"
+      style="text-align:center;font-size:15px;font-weight:600;padding:8px 4px;width:70px"></td>
+    <td><select onchange="handleUomChange(${i},this)" style="font-size:12px;padding:7px 4px;width:82px">
+      ${uoms.map(u=>`<option ${l.uom===u?'selected':''}>${u}</option>`).join('')}
+      <option value="__custom__" style="color:var(--p);font-weight:600">+ Add new...</option>
+    </select></td>
+    <td><input type="number" value="${l.rate||''}" min="0" step="1" placeholder="₹ 0"
+      oninput="LI[${i}].rate=+this.value||0;recalcRow(${i})"
+      style="text-align:right;font-size:15px;font-weight:600;padding:8px 6px;width:100px"></td>
+    <td><input type="number" value="${l.discPct||''}" min="0" max="100" step="0.5" placeholder="0"
+      oninput="LI[${i}].discPct=+this.value||0;recalcRow(${i})"
+      style="text-align:center;font-size:13px;padding:8px 4px;width:58px"></td>
+    ${gst?`<td><select onchange="LI[${i}].gstRate=+this.value;recalc()" style="font-size:13px;padding:7px 4px;width:65px">${[0,5,12,18,28].map(r=>`<option value="${r}" ${l.gstRate==r?'selected':''}>${r}%</option>`).join('')}</select></td>`:''}
+    <td><input value="${amt?'₹ '+amt.toFixed(2):''}" readonly class="ro" style="width:100px;font-size:13px;font-weight:700;padding:8px 6px;color:var(--p)"></td>
+    <td><button class="rl" onclick="remLI(${i})" title="Remove row" style="font-size:18px;padding:4px 8px">✕</button></td>
   </tr>`;
 }
+
+// Recalc single row amount display (fast, no full re-render)
+function recalcRow(i){
+  LI[i].qty=LI[i].qty||0;LI[i].rate=LI[i].rate||0;LI[i].discPct=LI[i].discPct||0;
+  recalc();
+  // Update just the amount cell
+  const amt=LI[i].qty*LI[i].rate*(1-(LI[i].discPct||0)/100);
+  const rows=document.querySelectorAll('#liBody tr');
+  if(rows[i]){const cells=rows[i].querySelectorAll('td');const last=cells[cells.length-2];const inp=last?.querySelector('input');if(inp)inp.value=amt?'₹ '+amt.toFixed(2):'';}
+}
+
+// Auto-add row when last row gets content
+function autoAddRow(i){
+  if(i===LI.length-1&&LI[i].description&&LI[i].description.length>2){
+    LI.push(nli());
+    const b=document.getElementById('liBody');
+    if(b){const tmp=document.createElement('tbody');tmp.innerHTML=liRow(LI[LI.length-1],LI.length-1);b.appendChild(tmp.firstChild);}
+  }
+}
+
+// UOM custom handler
+function handleUomChange(i,sel){
+  if(sel.value==='__custom__'){
+    const custom=prompt('Enter new UOM (e.g., DRUM, COIL, FEET):');
+    if(custom&&custom.trim()){
+      const uom=addCustomUom(custom);
+      LI[i].uom=uom;
+      rfLI();
+    }else{sel.value=LI[i].uom||'NOS';}
+  }else{LI[i].uom=sel.value;}
+}
+
 function searchItem(i,q){
   const drop=document.getElementById('qid'+i);if(!drop)return;
   if(!q||q.length<1){drop.classList.remove('show');return;}
   q=q.toLowerCase();
-  const matches=S.items.filter(x=>x.code.toLowerCase().includes(q)||x.description.toLowerCase().includes(q)||x.hsn.includes(q)||x.category.toLowerCase().includes(q)).slice(0,10);
-  if(!matches.length){drop.innerHTML='<div style="padding:6px 8px;color:var(--tl)">No match</div>';drop.classList.add('show');return;}
-  drop.innerHTML=matches.map(x=>`<div class="qi-item" onclick="pickItem(${i},'${x.id}')"><b>${x.code}</b> ${x.description} <span style="color:var(--tl)">${fc(x.rate)} | ${x.gstRate}%</span></div>`).join('');
+  const matches=S.items.filter(x=>
+    x.description.toLowerCase().includes(q)||
+    x.code.toLowerCase().includes(q)||
+    (x.hsn&&x.hsn.includes(q))||
+    x.category.toLowerCase().includes(q)
+  ).slice(0,12);
+  if(!matches.length){drop.innerHTML='<div style="padding:10px 12px;color:var(--tl);font-size:12px">No matching item. You can type a custom description.</div>';drop.classList.add('show');return;}
+  drop.innerHTML=matches.map(x=>`<div class="qi-item" onclick="pickItem(${i},'${x.id}')">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span><b style="color:var(--p)">${x.code}</b> &nbsp;${x.description}</span>
+      <span style="color:var(--tl);font-size:11px;white-space:nowrap;margin-left:10px">${fc(x.rate)} · ${x.gstRate}% · ${x.uom}</span>
+    </div></div>`).join('');
   drop.classList.add('show');
 }
 function pickItem(i,id){
@@ -577,8 +677,13 @@ function pickItem(i,id){
   LI[i]={itemId:it.id,code:it.code,description:it.description,hsn:it.hsn,qty:LI[i].qty||1,uom:it.uom,rate:it.rate,discPct:LI[i].discPct||0,gstRate:it.gstRate||18};
   document.getElementById('qid'+i).classList.remove('show');
   rfLI();recalc();
+  // Focus the qty field so user can type quantity right away
+  setTimeout(()=>{const rows=document.querySelectorAll('#liBody tr');if(rows[i]){const qtyInput=rows[i].querySelector('input[type="number"]');if(qtyInput)qtyInput.focus();}},50);
 }
-function addLI(n=1){for(let j=0;j<n;j++)LI.push(nli());rfLI();}
+function addLI(n=1){for(let j=0;j<n;j++)LI.push(nli());rfLI();
+  // Focus the last row's description field
+  setTimeout(()=>{const rows=document.querySelectorAll('#liBody tr');if(rows.length){const last=rows[rows.length-1];const inp=last.querySelector('input');if(inp)inp.focus();}},50);
+}
 function remLI(i){if(LI.length<=1)return;LI.splice(i,1);rfLI();recalc();}
 function rfLI(){const b=document.getElementById('liBody');if(b)b.innerHTML=LI.map((l,i)=>liRow(l,i)).join('');}
 
@@ -728,11 +833,11 @@ function printDoc(){
 // ==================== CUSTOMER MASTER ====================
 let cf='';
 function rCust(){
-  const fl=cf?S.customers.filter(c=>c.name.toLowerCase().includes(cf)||c.code.toLowerCase().includes(cf)||c.address.toLowerCase().includes(cf)):S.customers;
+  const fl=cf?S.customers.filter(c=>(c.name||'').toLowerCase().includes(cf)||(c.code||'').toLowerCase().includes(cf)||(c.address||'').toLowerCase().includes(cf)):S.customers;
   return`<div class="ph"><div><h1>Customers</h1><p class="st">${S.customers.length} total</p></div><div style="display:flex;gap:6px"><button class="bt bw" onclick="xlTab='cust';sp('xlimport')">📊 Import Excel/CSV</button><button class="bt bp" onclick="sCustM()">+ Add</button></div></div>
   <div class="cd"><div class="fb"><input placeholder="Search customers..." value="${cf}" oninput="cf=this.value.toLowerCase();rp()"><span style="font-size:11px;color:var(--tl)">${fl.length} shown</span></div>
   <table><thead><tr><th>Code</th><th>Name</th><th>Address</th><th>GSTIN</th><th>Type</th><th></th></tr></thead><tbody>
-  ${fl.map(c=>`<tr><td><span class="badge bb">${c.code}</span></td><td style="font-weight:500;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.name}</td><td style="font-size:11px;max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.address}</td><td style="font-size:11px">${c.gstin||'—'}</td><td><span class="badge ${c.type==='B2B'?'bg':'by'}">${c.type||'B2C'}</span></td><td><button class="bt bsm bo" onclick="eCustM('${c.id}')">Edit</button> <button class="bt bsm bd" onclick="dCust('${c.id}')">×</button></td></tr>`).join('')}
+  ${fl.map(c=>`<tr><td><span class="badge bb">${c.code||''}</span></td><td style="font-weight:500;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.name||''}</td><td style="font-size:11px;max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.address||''}</td><td style="font-size:11px">${c.gstin||'—'}</td><td><span class="badge ${c.type==='B2B'?'bg':'by'}">${c.type||'B2C'}</span></td><td><button class="bt bsm bo" onclick="eCustM('${c.id}')">Edit</button> <button class="bt bsm bd" onclick="dCust('${c.id}')">×</button></td></tr>`).join('')}
   </tbody></table></div><div id="custMdl"></div>`;
 }
 function sCustM(cid){const c=cid?gcu(cid):{id:'',code:'',name:'',address:'',gstin:'',pan:'',stateCode:'27',phone:'',email:'',type:'B2C'};
@@ -846,12 +951,12 @@ function rXlImport(){
     <button class="tab-btn ${xlTab==='item'?'active':''}" onclick="xlTab='item';rp()">📦 Item Master</button>
     <button class="tab-btn ${xlTab==='comp'?'active':''}" onclick="xlTab='comp';rp()">🏢 Company Master</button>
     <button class="tab-btn ${xlTab==='doc'?'active':''}" onclick="xlTab='doc';rp()">📄 Document Generator</button>
-    <button class="tab-btn ${xlTab==='img'?'active':''}" onclick="xlTab='img';rp()">📷 Image to Document</button>
+    <button class="tab-btn ${xlTab==='img'?'active':''}" onclick="xlTab='img';rp()">📷 Image/PDF to Document</button>
   </div>
   <div class="cd">
     ${xlTab==='img'?`<div class="step-bar">
-      <div class="step-item ${xlStep>=1?'active':''} ${xlStep>1?'done':''}">1. Upload Image</div>
-      <div class="step-item ${xlStep>=2?'active':''} ${xlStep>2?'done':''}">2. OCR Extract</div>
+      <div class="step-item ${xlStep>=1?'active':''} ${xlStep>1?'done':''}">1. Upload Image/PDF</div>
+      <div class="step-item ${xlStep>=2?'active':''} ${xlStep>2?'done':''}">2. Extract Text</div>
       <div class="step-item ${xlStep>=3?'active':''}">3. Review & Generate</div>
     </div>
     <div id="xlContent">${rImgUpload()}</div>`:`<div class="step-bar">
@@ -1028,7 +1133,7 @@ function rXlPreviewHtml(){
   if(xlTab==='doc'){
     h+=`<div class="fr f3" style="margin-bottom:12px">
       <div class="fg"><label>Company</label><select id="xlDocCo">${S.companies.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select></div>
-      <div class="fg"><label>Customer</label><select id="xlDocCust"><option value="">— Select —</option>${S.customers.map(c=>`<option value="${c.id}">${c.code} — ${c.name}</option>`).join('')}</select></div>
+      <div class="fg"><label>Customer</label><select id="xlDocCust"><option value="">— Select —</option>${S.customers.map(c=>`<option value="${c.id}">${c.code||''} — ${c.name||''}</option>`).join('')}</select></div>
       <div class="fg"><label>Doc Type</label><select id="xlDocType"><option value="invoice">Tax Invoice</option><option value="quotation">Quotation</option><option value="challan">Delivery Challan</option><option value="proforma">Proforma Invoice</option></select></div>
     </div>`;
   }
@@ -1455,21 +1560,28 @@ let ocrRawText='';
 
 function rImgUpload(){
   return`<div class="ocr-zone" id="ocrZone" onclick="document.getElementById('ocrFile').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="event.preventDefault();this.classList.remove('drag-over');handleOcrDrop(event)">
-    <div class="dz-icon">📷</div>
-    <div class="dz-text">Drop an invoice / bill image here</div>
-    <div class="dz-sub">or click to browse · Supports PNG, JPG, JPEG, BMP, WebP</div>
+    <div class="dz-icon">📷📄</div>
+    <div class="dz-text">Drop an invoice image or PDF here</div>
+    <div class="dz-sub">or click to browse · Supports PNG, JPG, JPEG, BMP, WebP, <b>PDF</b></div>
   </div>
-  <input type="file" id="ocrFile" accept="image/*" style="display:none" onchange="handleOcrFile(this.files[0])">
+  <input type="file" id="ocrFile" accept="image/*,.pdf,application/pdf" style="display:none" onchange="handleOcrFile(this.files[0])">
   <div style="margin-top:16px;padding:14px;background:#fefce8;border-radius:8px;font-size:12px;color:#854d0e">
-    <b>How it works:</b> Upload a photo of an invoice or bill. OCR will extract the text, then smart parsing will detect line items (description, quantity, rate, amount). You can review and edit the extracted items before generating a document in the system.
-    <br><b>Tips:</b> Clear photos work best. Printed text is easier to read than handwriting. Make sure the image is well-lit and not blurry.
+    <b>How it works:</b> Upload a photo or PDF of an invoice or bill. OCR will extract the text, then smart parsing will detect line items (description, quantity, rate, amount). You can review and edit the extracted items before generating a document in the system.
+    <br><b>Tips:</b> Clear photos work best. For PDFs, each page is processed separately and results are combined. Printed text is easier to read than handwriting.
   </div>`;
 }
 
 function handleOcrDrop(e){const f=e.dataTransfer.files[0];if(f)handleOcrFile(f);}
 
 function handleOcrFile(file){
-  if(!file||!file.type.startsWith('image/'))return toast('Please select an image file','error');
+  if(!file)return toast('No file selected','error');
+  const isPdf=file.type==='application/pdf'||file.name.toLowerCase().endsWith('.pdf');
+  if(!isPdf&&!file.type.startsWith('image/'))return toast('Please select an image or PDF file','error');
+
+  if(isPdf){
+    handlePdfOcr(file);
+    return;
+  }
   const reader=new FileReader();
   reader.onload=function(e){
     const el=document.getElementById('xlContent');
@@ -1480,6 +1592,125 @@ function handleOcrFile(file){
     runOcr(e.target.result);
   };
   reader.readAsDataURL(file);
+}
+
+async function handlePdfOcr(file){
+  const el=document.getElementById('xlContent');
+  if(!el)return;
+  el.innerHTML=`<div style="text-align:center;padding:30px">
+    <div style="font-size:48px;margin-bottom:12px">📄</div>
+    <div style="font-weight:600;font-size:15px;margin-bottom:8px">${file.name}</div>
+    <div class="ocr-progress"><div class="ocr-status" id="ocrStatus">Loading PDF...</div><div class="ocr-bar"><div class="ocr-bar-fill" id="ocrBar" style="width:3%"></div></div></div>
+    <div id="pdfPages" style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center"></div></div>`;
+  xlStep=2;updateSteps();
+  const bar=document.getElementById('ocrBar');
+  const status=document.getElementById('ocrStatus');
+  try{
+    if(typeof pdfjsLib==='undefined'){
+      if(status)status.textContent='Loading PDF.js library...';
+      await new Promise((ok,no)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';s.onload=()=>{pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';ok();};s.onerror=no;document.head.appendChild(s);});
+    }
+    const ab=await file.arrayBuffer();
+    const pdf=await pdfjsLib.getDocument({data:ab}).promise;
+    const totalPages=pdf.numPages;
+    if(status)status.textContent=`PDF loaded — ${totalPages} page${totalPages>1?'s':''} found. Rendering...`;
+    if(bar)bar.style.width='10%';
+
+    // First try to extract text directly (for digital/text-based PDFs)
+    let directText='';
+    for(let p=1;p<=totalPages;p++){
+      const page=await pdf.getPage(p);
+      const tc=await page.getTextContent();
+      directText+=tc.items.map(i=>i.str).join(' ')+'\n';
+    }
+    const directClean=directText.replace(/\s+/g,' ').trim();
+
+    // If PDF has embedded text (>50 chars), use it directly — much faster & more accurate
+    if(directClean.length>50){
+      if(status)status.textContent='Extracted text directly from PDF (digital PDF detected)';
+      if(bar)bar.style.width='90%';
+      // Still render first page as preview
+      const pg1=await pdf.getPage(1);
+      const vp=pg1.getViewport({scale:1.5});
+      const canvas=document.createElement('canvas');canvas.width=vp.width;canvas.height=vp.height;
+      await pg1.render({canvasContext:canvas.getContext('2d'),viewport:vp}).promise;
+      const pagesEl=document.getElementById('pdfPages');
+      if(pagesEl){canvas.style.maxWidth='100%';canvas.style.maxHeight='300px';canvas.style.borderRadius='8px';canvas.style.boxShadow='0 2px 8px rgba(0,0,0,.12)';pagesEl.appendChild(canvas);}
+      // Reconstruct text with proper line breaks from textContent
+      let fullText='';
+      for(let p=1;p<=totalPages;p++){
+        const page=await pdf.getPage(p);
+        const tc=await page.getTextContent();
+        let lastY=null;
+        tc.items.forEach(item=>{
+          const y=Math.round(item.transform[5]);
+          if(lastY!==null&&Math.abs(y-lastY)>5)fullText+='\n';
+          else if(lastY!==null)fullText+=' ';
+          fullText+=item.str;
+          lastY=y;
+        });
+        fullText+='\n';
+      }
+      ocrRawText=fullText;
+      ocrItems=parseOcrText(ocrRawText);
+      if(bar)bar.style.width='100%';
+      xlStep=3;updateSteps();
+      if(el)el.innerHTML=rOcrReview();
+      toast(ocrItems.length+' line items extracted from PDF (direct text)','success');
+      return;
+    }
+
+    // Scanned PDF — render pages to images, then OCR each
+    if(status)status.textContent='Scanned PDF detected. Running OCR on each page...';
+    const pageImages=[];
+    for(let p=1;p<=totalPages;p++){
+      const page=await pdf.getPage(p);
+      const scale=2;
+      const vp=page.getViewport({scale});
+      const canvas=document.createElement('canvas');canvas.width=vp.width;canvas.height=vp.height;
+      await page.render({canvasContext:canvas.getContext('2d'),viewport:vp}).promise;
+      pageImages.push(canvas.toDataURL('image/png'));
+      // Show small thumbnails
+      const pagesEl=document.getElementById('pdfPages');
+      if(pagesEl){
+        const thumb=document.createElement('div');
+        thumb.style.cssText='text-align:center;font-size:10px;color:var(--tl)';
+        const img=document.createElement('img');img.src=canvas.toDataURL('image/jpeg',0.5);img.style.cssText='width:80px;height:auto;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.1);display:block;margin-bottom:2px';
+        thumb.appendChild(img);thumb.appendChild(document.createTextNode('Page '+p));pagesEl.appendChild(thumb);
+      }
+      const pctRender=10+Math.round((p/totalPages)*20);
+      if(bar)bar.style.width=pctRender+'%';
+    }
+
+    // OCR each page image
+    if(typeof Tesseract==='undefined'){
+      await new Promise((ok,no)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.1.1/tesseract.min.js';s.onload=ok;s.onerror=no;document.head.appendChild(s);});
+    }
+    const worker=await Tesseract.createWorker('eng',1,{
+      logger:m=>{
+        if(m.status&&status)status.textContent=m.status.replace(/_/g,' ');
+      }
+    });
+    let allText='';
+    for(let p=0;p<pageImages.length;p++){
+      if(status)status.textContent=`OCR page ${p+1} of ${pageImages.length}...`;
+      const pctOcr=30+Math.round(((p+1)/pageImages.length)*65);
+      if(bar)bar.style.width=pctOcr+'%';
+      const{data}=await worker.recognize(pageImages[p]);
+      allText+=data.text+'\n';
+    }
+    await worker.terminate();
+
+    ocrRawText=allText;
+    ocrItems=parseOcrText(ocrRawText);
+    if(bar)bar.style.width='100%';
+    xlStep=3;updateSteps();
+    if(el)el.innerHTML=rOcrReview();
+    toast(ocrItems.length+' line items extracted from '+totalPages+' PDF page(s)','success');
+  }catch(err){
+    if(status)status.textContent='PDF processing failed: '+err.message;
+    toast('PDF error: '+err.message,'error');
+  }
 }
 
 async function runOcr(imgData){
@@ -1555,7 +1786,7 @@ function rOcrReview(){
   // Company / Customer / Doc type selectors
   h+=`<div class="fr f3" style="margin-bottom:12px">
     <div class="fg"><label>Company</label><select id="ocrCo">${S.companies.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select></div>
-    <div class="fg"><label>Customer</label><select id="ocrCust"><option value="">— Select —</option>${S.customers.map(c=>`<option value="${c.id}">${c.code} — ${c.name}</option>`).join('')}</select></div>
+    <div class="fg"><label>Customer</label><select id="ocrCust"><option value="">— Select —</option>${S.customers.map(c=>`<option value="${c.id}">${c.code||''} — ${c.name||''}</option>`).join('')}</select></div>
     <div class="fg"><label>Doc Type</label><select id="ocrDocType"><option value="invoice">Tax Invoice</option><option value="quotation">Quotation</option><option value="challan">Delivery Challan</option><option value="proforma">Proforma Invoice</option></select></div>
   </div>`;
   // Editable items table
