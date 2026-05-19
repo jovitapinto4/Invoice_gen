@@ -113,6 +113,7 @@ td{padding:7px 10px;border-bottom:1px solid var(--b)}
 /* Toast */
 .toast{position:fixed;top:16px;right:16px;color:#fff;padding:10px 18px;border-radius:8px;z-index:2000;font-size:12.5px;animation:si .3s}
 @keyframes si{from{transform:translateX(80px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes pulse{from{opacity:.4;width:30%}to{opacity:1;width:80%}}
 /* Print */
 .inv-header{text-align:center;border-bottom:2px solid #000;padding-bottom:10px;margin-bottom:10px}
 .inv-header h1{font-size:20px;font-weight:800;letter-spacing:1px;margin:0}
@@ -384,7 +385,7 @@ counters:{customerId:50,itemId:95,docId:1}
 };
 
 let S;try{const sv=localStorage.getItem('bm3');S=sv?JSON.parse(sv):JSON.parse(JSON.stringify(D));}catch(e){S=JSON.parse(JSON.stringify(D));}
-function sv(){try{localStorage.setItem('bm3',JSON.stringify(S));if(fbAutoSync)fbSyncAuto();}catch(e){}}
+function sv(){try{localStorage.setItem('bm3',JSON.stringify(S));if(fbConnected)fbSyncAuto();}catch(e){}}
 
 // Helpers
 function gid(p){return p+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,4);}
@@ -1251,10 +1252,10 @@ function fbToggleAuto(checked){
   toast(checked?'Auto-sync enabled':'Auto-sync disabled');
 }
 
-async function fbPush(){
+async function fbPush(silent){
   if(!fbDb||fbSyncing)return;
   fbSyncing=true;
-  toast('Pushing to Firebase...');
+  if(!silent)toast('Pushing to Firebase...');
   try{
     await fbDb.ref('billmanager').set({
       customers:S.customers,
@@ -1266,9 +1267,8 @@ async function fbPush(){
     });
     fbLastSync=new Date().toISOString();
     localStorage.setItem('bm3_fbLastSync',fbLastSync);
-    toast('All data pushed to Firebase!');
-    if(pg==='gsync')rp();
-  }catch(e){toast('Push failed: '+e.message,'error');}
+    if(!silent){toast('All data pushed to Firebase!');if(pg==='gsync')rp();}
+  }catch(e){if(!silent)toast('Push failed: '+e.message,'error');}
   finally{fbSyncing=false;}
 }
 
@@ -1304,16 +1304,77 @@ async function fbPullData(){
   finally{fbSyncing=false;}
 }
 
-// Auto-sync via Firebase
+// Auto-sync via Firebase — always syncs silently when connected
 let _fbSyncTimer=null;
 function fbSyncAuto(){
-  if(!fbDb||!fbAutoSync||fbSyncing)return;
+  if(!fbDb||fbSyncing)return;
   clearTimeout(_fbSyncTimer);
-  _fbSyncTimer=setTimeout(()=>fbPush(),2000);
+  _fbSyncTimer=setTimeout(()=>fbPush(true),1500);
 }
 
-// Init Firebase on load if config exists
-if(fbConfig&&fbConfig.apiKey)setTimeout(fbInit,500);
+// ---- Auto-load from Firebase on app startup ----
+function fbBootstrap(){
+  if(!fbConfig||!fbConfig.apiKey||!fbConfig.databaseURL)return Promise.resolve(false);
+  return new Promise(resolve=>{
+    try{
+      if(!firebase.apps.length)firebase.initializeApp(fbConfig);
+      fbDb=firebase.database();
+      fbDb.ref('billmanager').once('value').then(snap=>{
+        const d=snap.val();
+        fbConnected=true;
+        if(d&&(d.customers||d.documents)){
+          if(d.customers&&d.customers.length)S.customers=d.customers;
+          if(d.items&&d.items.length)S.items=d.items;
+          if(d.companies&&d.companies.length){
+            d.companies.forEach(sc=>{
+              const existing=S.companies.find(c=>c.id===sc.id);
+              if(existing)Object.keys(sc).forEach(k=>{if(sc[k]!==''&&sc[k]!==undefined)existing[k]=sc[k];});
+              else S.companies.push(sc);
+            });
+          }
+          if(d.documents&&d.documents.length)S.documents=d.documents;
+          if(d.counters){
+            if(d.counters.customerId)S.counters.customerId=+d.counters.customerId;
+            if(d.counters.itemId)S.counters.itemId=+d.counters.itemId;
+            if(d.counters.docId)S.counters.docId=+d.counters.docId;
+          }
+          localStorage.setItem('bm3',JSON.stringify(S));
+          fbLastSync=new Date().toISOString();
+          localStorage.setItem('bm3_fbLastSync',fbLastSync);
+        }
+        resolve(true);
+      }).catch(e=>{console.error('Firebase pull error:',e);fbConnected=false;resolve(false);});
+    }catch(e){console.error('Firebase init error:',e);resolve(false);}
+  });
+}
+
+// ---- Listen for real-time changes from other sessions ----
+function fbListenForChanges(){
+  if(!fbDb)return;
+  fbDb.ref('billmanager').on('value',snap=>{
+    if(fbSyncing)return; // ignore our own writes
+    const d=snap.val();
+    if(!d)return;
+    if(d.customers&&d.customers.length)S.customers=d.customers;
+    if(d.items&&d.items.length)S.items=d.items;
+    if(d.companies&&d.companies.length){
+      S.companies.forEach(lc=>{
+        const rc=d.companies.find(c=>c.id===lc.id);
+        if(rc)Object.keys(rc).forEach(k=>{if(rc[k]!==''&&rc[k]!==undefined)lc[k]=rc[k];});
+      });
+      d.companies.forEach(rc=>{if(!S.companies.find(c=>c.id===rc.id))S.companies.push(rc);});
+    }
+    if(d.documents&&d.documents.length)S.documents=d.documents;
+    if(d.counters){
+      if(d.counters.customerId)S.counters.customerId=+d.counters.customerId;
+      if(d.counters.itemId)S.counters.itemId=+d.counters.itemId;
+      if(d.counters.docId)S.counters.docId=+d.counters.docId;
+    }
+    localStorage.setItem('bm3',JSON.stringify(S));
+    // Refresh current view if on a list page
+    if(['dash','inv','quo','dc','pi','cust','item','co'].includes(pg))rp();
+  });
+}
 
 // ---- Google Sheets (secondary) ----
 function gsSaveUrl(){
@@ -1560,7 +1621,21 @@ document.addEventListener('keydown',e=>{
   }
 });
 
-sp('dash');
+// ---- APP STARTUP ----
+(async function boot(){
+  const mn=document.getElementById('mn');
+  if(fbConfig&&fbConfig.apiKey){
+    mn.innerHTML='<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:14px"><div style="font-size:40px">☁️</div><div style="font-size:15px;font-weight:600;color:var(--p)">Loading data from Firebase...</div><div style="width:200px;height:6px;background:var(--b);border-radius:3px;overflow:hidden"><div style="width:60%;height:100%;background:var(--p);border-radius:3px;animation:pulse 1s infinite alternate"></div></div><div style="font-size:11px;color:var(--tl)">Syncing across all your devices</div></div>';
+    const ok=await fbBootstrap();
+    if(ok){
+      fbListenForChanges();
+      toast('Data loaded from cloud');
+    }else{
+      toast('Using local data (Firebase unavailable)','warning');
+    }
+  }
+  sp('dash');
+})();
 </script>
 </body>
 </html>
