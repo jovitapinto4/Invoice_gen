@@ -1128,9 +1128,10 @@ function doXlImport(){
 }
 
 // ===== CLOUD SYNC (Firebase + Google Sheets) =====
+const FB_DEFAULT={apiKey:'AIzaSyD21VlN5rfMnS9F3K838QIUH6SrtjLkS5g',databaseURL:'https://invgen-5f275-default-rtdb.firebaseio.com',projectId:'invgen-5f275'};
 let fbDb=null,fbConnected=false,fbSyncing=false;
-let fbConfig=JSON.parse(localStorage.getItem('bm3_fbConfig')||'null');
-let fbAutoSync=localStorage.getItem('bm3_fbAuto')==='true';
+let fbConfig=JSON.parse(localStorage.getItem('bm3_fbConfig')||'null')||FB_DEFAULT;
+let fbAutoSync=true;
 let fbLastSync=localStorage.getItem('bm3_fbLastSync')||'';
 
 // Google Sheets (kept as secondary option)
