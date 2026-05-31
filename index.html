@@ -629,6 +629,14 @@ counters:{customerId:50,itemId:305,docId:1}
 };
 
 let S;try{const sv=localStorage.getItem('bm3');S=sv?JSON.parse(sv):JSON.parse(JSON.stringify(D));}catch(e){S=JSON.parse(JSON.stringify(D));}
+// Merge new default items into existing data (so updates to D.items reach existing users)
+(function mergeDefaults(){
+  if(!S.items)S.items=[];
+  const existIds=new Set(S.items.map(i=>i.id));
+  let added=0;
+  D.items.forEach(di=>{if(!existIds.has(di.id)){S.items.push(JSON.parse(JSON.stringify(di)));added++;}});
+  if(added>0){S.counters.itemId=Math.max(S.counters.itemId||0,D.counters.itemId);try{localStorage.setItem('bm3',JSON.stringify(S));}catch(e){}}
+})();
 function sv(){try{localStorage.setItem('bm3',JSON.stringify(S));if(fbConnected)fbSyncAuto();}catch(e){}}
 
 // Helpers
